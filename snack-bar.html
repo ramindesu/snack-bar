@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>snack bar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="buttons">
+      <button onclick="showsnack(successMsg)">success</button>
+      <button onclick="showsnack(errorMsg)">Error</button>
+      <button onclick="showsnack(invalidMsg)">Invalid</button>
+    </div>
+    <div id="snackbar"></div>
+    <script>
+      let snackbar = document.getElementById("snackbar");
+      let successMsg = 'successfuly submitted'
+       let errorMsg = 'please fix the error'
+        let invalidMsg = 'invalid input, try again  '
+      function showsnack(msg) {
+        let snack = document.createElement('div');
+        snack.classList.add('snack');
+        snack.innerHTML = msg;
+        snackbar.appendChild(snack);
+      }
+    </script>
+  </body>
+</html>
