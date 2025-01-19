@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>snack bar</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/d86b47e0ce.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="buttons">
@@ -15,14 +19,26 @@
     <div id="snackbar"></div>
     <script>
       let snackbar = document.getElementById("snackbar");
-      let successMsg = 'successfuly submitted'
-       let errorMsg = 'please fix the error'
-        let invalidMsg = 'invalid input, try again  '
+      let successMsg =
+        '<i class="fa-solid fa-circle-check"></i> successfuly submitted';
+      let errorMsg =
+        '<i class="fa-solid fa-circle-xmark"></i> please fix the error';
+      let invalidMsg =
+        '<i class="fa-solid fa-circle-exclamation"></i> invalid input, try again  ';
       function showsnack(msg) {
-        let snack = document.createElement('div');
-        snack.classList.add('snack');
+        let snack = document.createElement("div");
+        snack.classList.add("snack");
         snack.innerHTML = msg;
         snackbar.appendChild(snack);
+        if (msg.includes("error")) {
+          snack.classList.add("error");
+        }
+        if (msg.includes("invalid")) {
+          snack.classList.add("invalid");
+        }
+        setTimeout(()=>{
+            snack.remove();
+        },6000)
       }
     </script>
   </body>
